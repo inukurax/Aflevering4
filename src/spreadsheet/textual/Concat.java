@@ -2,20 +2,18 @@ package spreadsheet.textual;
 
 import spreadsheet.Expression;
 
-public final class Concat extends BinaryTextualExpression {
+public class Concat extends Textual {
+	
+	private String value;
+	
+	public Concat (final Expression firstOperand, final Expression secondOperand) {
+		value = firstOperand.toString() + secondOperand.toString();
+	}
 
-  public Concat(
-      final Expression firstOperand,
-      final Expression secondOperand) {
-    super(firstOperand, secondOperand);
-  }
-
-  @Override
-  protected String evaluate() {
-    final String x = firstOperand.toString();
-    final String y = secondOperand.toString();
-    return y + x;
-//    return x + y;
-  }
+	@Override
+	public String evaluate() {
+		return value;
+	}
+	
 
 }

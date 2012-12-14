@@ -2,18 +2,17 @@ package spreadsheet.arithmetic;
 
 import spreadsheet.Expression;
 
-public final class Add extends BinaryArithmeticExpression {
+public final class Add extends Arithmetic {
 
-  public Add(final Expression firstOperand, final Expression secondOperand) {
-    super(firstOperand, secondOperand);
-  }
+	private int value;
 
-  @Override
-  protected int evaluate() {
-    final int x = this.firstOperand.toInt();
-    final int y = this.secondOperand.toInt();
-    return x -y;
-//    return x + y;
-  }
+	public Add(final Expression firstOperand, final Expression secondOperand) {
+		value = firstOperand.toInt() + secondOperand.toInt();
+	}
+
+	@Override
+	public int evaluate() {
+		return value;
+	}
 
 }

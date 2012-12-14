@@ -1,31 +1,45 @@
 package spreadsheet;
 
-/* Immutable. */
-public class Position {
+public final class Position {
+    private int column;
+    private int row;
 
-  private int column, row;
+    /**
+     * Constructs a Position with a row and column value
+     * @param column is a non negative int
+     * @param row is a non negative int
+     */
+    public Position(final int column, final int row){
 
-  /* Assume column, row are nonnegative. */
-  public Position(final int column, final int row) {
-    this.column = column;
-    this.row = row;
-  }
+        this.column = column;
+        this.row = row;
 
-  /* Guaranteed nonnegative. */
-  public int getColumn() {
-    return this.column;
-  }
+    }
 
-  /* Guaranteed nonnegative. */
-  public int getRow() {
-    return this.row;
-  }
+    /**
+     * Accessor method for getting column
+     * @return column
+     */
+    public int getColumn(){
+        return column;
+    }
+    
+    /**
+     * Accessor method for getting row
+     * @return row
+     */
+    public int getRow(){
+        return row;
+    }
 
-  /* Assume other is an instance of Position. */
-  public boolean isEqualTo(final Position other) {
-    return
-      this.column == other.column &&
-      this.row == other.row;
-  }
+    /**
+     * Accessor method 
+     * @param other
+     * @return returning whether Position mathces 
+     * another Position
+     */
+    public boolean isEqualTo(final Position other){
+        return (other.getRow() == getRow() && other.getColumn() == getColumn());
+    }
 
 }

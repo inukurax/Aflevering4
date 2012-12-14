@@ -1,15 +1,17 @@
 package spreadsheet.textual;
 
-public final class TConst extends TextualExpression {
-  private String value;
+public class TConst extends Textual {
 
-  public TConst(final String value) {
-    this.value = value;
-  }
+	private String value;
+	
+	public TConst(final String string) {
+		value = string;
+	}
+	
+	@Override
+	public String evaluate() {
+		return this.value;
+	}
+	
 
-  @Override
-  protected String evaluate() {
-    return null;
-//    return this.value;
-  }
 }
