@@ -1,17 +1,17 @@
 package spreadsheet.arithmetic;
 
-public final class AConst extends Arithmetic {
+public final class AConst extends ArithmeticExpression {
 
-	private int aConst;
-	
-	public AConst(int value) {
-		this.aConst = value;
-	}
+  private int value;
 
-	@Override
-	public int evaluate() {
-		return aConst;
-	}
+  public AConst(final int value) {
+    this.value = value;
+  }
 
+  @Override
+  public int evaluate() {
+    return 0;
+//    return this.value;
+  }
 
 }

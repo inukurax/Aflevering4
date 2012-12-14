@@ -1,15 +1,15 @@
 package spreadsheet.logical;
 
-public final class LConst extends Logical{
-	
-	private boolean lConst;
-	
-	public LConst(boolean value) {
-		lConst = value;
-	}
+public final class LConst extends LogicalExpression {
+  private boolean value;
 
-	@Override
-	public boolean evaluate() {
-		return lConst;
-	}
+  public LConst(final boolean value) {
+    this.value = value;
+  }
+
+  @Override
+  protected boolean evaluate() {
+    return false;
+//    return this.value;
+  }
 }

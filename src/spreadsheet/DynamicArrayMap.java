@@ -1,57 +1,49 @@
 package spreadsheet;
 
-import java.util.Arrays;
-/**
- * @deprecated
- * Spreadsheet uses ArrayList instead.
- *
- */
-@Deprecated
-public class DynamicArrayMap {
-	
-	// array stores the Nodes in an Array
-	// index keeps count of the index number of the array
-	private Node[] array;
-	private int index;
-	
-	/**
-	 * Constructs a DynamicArrayMap
-	 * with a starting length of 1
-	 * and index 0
-	 */
-	public DynamicArrayMap() {
-		this.array = new Node[1];
-		this.array[0] = null;
-		this.index = 0;
-	}
-	
-	/**
-	 * Inserts a Node of a Position and Expression
-	 * and increments index and array.length to match
-	 * @param key a non null Position
-	 * @param value a non null Expression
-	 */
-	public void insert(final Position key, final Expression value) {
-		if (index == array.length) {
-			array = Arrays.copyOf(array, array.length * 2);
-			array[index] = new Node(key, value);
-		}
-		else 
-			array[index] = new Node(key, value);
-		
-		index++;
-	}
-	/**
-	 * @param key a non null Position
-	 * @return the Expression associated with the key
-	 */
-	public Expression lookup(final Position key) {
-		for (int i = 0; i < index; i++) {
-			  if (array[i].getKey().isEqualTo(key)) {
-				  return array[i].getValue();
-			  }
-		}
-		return null;
-	}
-	
+final class DynamicArrayMap {
+
+  private Node[] nodes;
+  private int length;
+
+  public DynamicArrayMap() {
+    this.nodes = new Node[10];
+    this.length = 0;
+  }
+
+  /**
+   * @param key not null.
+   * @param value not null.
+   */
+  public void insert(final Position key, final Expression value) {
+    this.expandIfFull();
+    this.nodes[this.length] = new Node(key, value);
+    this.length++;
+  }
+
+  private void expandIfFull() {
+    final int capacity = this.nodes.length;
+    if (this.length < capacity) {
+      return;
+    }
+
+    final Node[] newNodes = new Node[capacity * 2];
+    System.arraycopy(this.nodes, 0, newNodes, 0, capacity);
+    this.nodes = newNodes;
+  }
+
+  /**
+   * @param key not null.
+   * @return null, if the element is absent.
+   */
+  public Expression lookup(final Position key) {
+    Node node = null;
+    for (int i = 0; i < this.length; i++) {
+      node = this.nodes[i];
+      if (node.getKey().isEqualTo(key)) {
+        return node.getValue();
+      }
+    }
+    return null;
+  }
+
 }

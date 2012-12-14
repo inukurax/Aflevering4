@@ -1,43 +1,38 @@
 package spreadsheet;
-/**
- * 
- * CellReference extends Expression
- */
-public final class CellReference extends Expression {
-	
-	private Spreadsheet sheet;
-	private Position pos;
-	
-	/**
-	 * Stores a reference in a Spreadsheet with a non null Position
-	 * @param spread a Spreadsheet
-	 * @param position a non null Position
-	 */
-	public CellReference (final Spreadsheet spread, final Position position) {
-		   sheet = spread;
-		   pos = position;
-	}
 
-	@Override
-	/**
-	 * @return the boolean Expression which the CellReference refers to.
-	 */
-	public  boolean toBoolean() {
-		  return sheet.get(pos).toBoolean();
-	}
-	@Override
-	/**
-	 * @return the Integer Expression which the CellReference refers to.
-	 */
-	public int toInt() {
-			return sheet.get(pos).toInt();
-	}
-	@Override
-	/**
-	 * @return the String Expression which the CellReference refers to.
-	 */
-	public String toString() {
-			return sheet.get(pos).toString();
-	}
+public final class CellReference extends Expression {
+
+  private Position position;
+  private Spreadsheet spreadsheet;
+
+  public CellReference(
+      final Spreadsheet spreadsheet,
+      final Position position) {
+    this.spreadsheet = spreadsheet;
+    this.position = position;
+  }
+
+  // Can be null
+  private Expression getExpression() {
+    return this.spreadsheet.get(new Position(0,0));
+  }
+
+  @Override
+  public boolean toBoolean() {
+    Expression expression = this.getExpression();
+    return expression.toBoolean();
+  }
+
+  @Override
+  public int toInt() {
+    Expression expression = this.getExpression();
+    return expression.toInt();
+  }
+
+  @Override
+  public String toString() {
+    Expression expression = this.getExpression();
+    return expression.toString();
+  }
 
 }
