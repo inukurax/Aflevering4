@@ -1,7 +1,8 @@
 package spreadsheet.textual;
 
 public final class TConst extends TextualExpression {
-  private String value;
+  @SuppressWarnings("unused")
+private String value;
 
   public TConst(final String value) {
     this.value = value;

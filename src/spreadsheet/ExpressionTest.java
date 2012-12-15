@@ -68,7 +68,7 @@ public class ExpressionTest {
 	        continue;
 	      }
 
-	      System.err.println("Add failed. " + info);
+	      System.err.println("Add.toInt() failed. " + info);
 	      
 	    }
 	  }
@@ -87,7 +87,7 @@ public class ExpressionTest {
 	        continue;
 	      }
 
-	      System.err.println("Neg failed. " + info);
+	      System.err.println("Neg.toInt() failed. " + info);
 	      
 	    }
 	  }
@@ -106,7 +106,7 @@ public class ExpressionTest {
 	        continue;
 	      }
 
-	      System.err.println("LConst failed. " + info);
+	      System.err.println("LConst.toBoolean() failed. " + info);
 	      
 	    }
 	  }
@@ -125,7 +125,7 @@ public class ExpressionTest {
 	        continue;
 	      }
 
-	      System.err.println("Disjunct failed. " + info);
+	      System.err.println("Disjunct.toBoolean(); failed. " + info);
 	      
 	    }
 	  }
@@ -144,7 +144,7 @@ public class ExpressionTest {
 	        continue;
 	      }
 
-	      System.err.println("Conjunct failed. " + info);
+	      System.err.println("Conjunct.toBoolean() failed. " + info);
 	      
 	    }
 	  }
@@ -163,7 +163,7 @@ public class ExpressionTest {
 	        continue;
 	      }
 
-	      System.err.println("TConst failed. " + info);
+	      System.err.println("TConst.toString() failed. " + info);
 	      
 	    }
 	  }
@@ -182,7 +182,7 @@ public class ExpressionTest {
 	        continue;
 	      }
 
-	      System.err.println("Concat failed. " + info);
+	      System.err.println("Concat.toString() failed. " + info);
 	    }
 	  }
 

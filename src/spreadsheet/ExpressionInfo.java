@@ -99,7 +99,9 @@ public class ExpressionInfo extends Info<Expression> {
 		else 
 			return (str + str2);
 	}
-
+	/**
+	 * Converts to String in format new Expression(Input,input2);
+	 */
 	@Override
 	public String toString() {
 		switch (i) {

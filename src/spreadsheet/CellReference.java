@@ -2,7 +2,8 @@ package spreadsheet;
 
 public final class CellReference extends Expression {
 
-  private Position position;
+  @SuppressWarnings("unused")
+private Position position;
   private Spreadsheet spreadsheet;
 
   public CellReference(

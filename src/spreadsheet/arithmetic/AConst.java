@@ -2,7 +2,8 @@ package spreadsheet.arithmetic;
 
 public final class AConst extends ArithmeticExpression {
 
-  private int value;
+  @SuppressWarnings("unused")
+private int value;
 
   public AConst(final int value) {
     this.value = value;

@@ -20,7 +20,8 @@ class SinglyLinkedList {
     }
 
     /* Can be null. */
-    public LinkedNode getTail() {
+    @SuppressWarnings("unused")
+	public LinkedNode getTail() {
       return this.tail;
     }
 
