@@ -3,7 +3,10 @@ package spreadsheet;
 import quickcheck.Info;
 
 public class ExpressionInfo extends Info<Expression> {
-
+	
+	//Variables used by constructor
+	//i is for later case usage
+	//name is for storing the name of the Expression
 	private int i;
 	private String name;
 	private String str;
@@ -55,7 +58,7 @@ public class ExpressionInfo extends Info<Expression> {
 	
 	/**
 	 * For LConst Expressions
-	 * @param bool
+	 * @param bool Original value for LConstGenerator
 	 */
 	public ExpressionInfo(Expression exp, boolean bool) {
 		super(exp);
@@ -64,6 +67,11 @@ public class ExpressionInfo extends Info<Expression> {
 		i = 4;
 	}
 
+	/**
+	 * For Conjunct Expressions
+	 * @param bool First original value for ConjunctGenerator
+	 * @param bool2 Second original value for ConjunctGenerator
+	 */
 	public ExpressionInfo(Expression exp, boolean bool, boolean bool2) {
 		super(exp);
 		this.bool = bool;
@@ -71,7 +79,14 @@ public class ExpressionInfo extends Info<Expression> {
 		name = "new Conjunct";
 		i = 5;
 	}
-
+	
+	/**
+	 * For Disjunct Expressions
+	 * @param bool First original value for ConjunctGenerator
+	 * @param bool2 Second original value for ConjunctGenerator
+	 * @param str Used to make the overload possible
+	 * 			  and stores a string with the name
+	 */
 	public ExpressionInfo(Expression exp, boolean bool, boolean bool2, String str) {
 		super(exp);
 		this.bool = bool;
@@ -80,6 +95,10 @@ public class ExpressionInfo extends Info<Expression> {
 		i = 6;
 	}
 
+	/**
+	 * For TConst Expressions
+	 * @param str Original value for TConstGenerator
+	 */
 	public ExpressionInfo(Expression exp, String str) {
 		super(exp);
 		this.str = str;
@@ -87,6 +106,11 @@ public class ExpressionInfo extends Info<Expression> {
 		i = 7;
 	}
 
+	/**
+	 * For Concat Expressions
+	 * @param str First original value for ConcatGenerator
+	 * @param str2 Second original value for ConcatGenerator
+	 */
 	public ExpressionInfo(Expression exp, String str, String str2) {
 		super(exp);
 		this.str = str;
@@ -104,9 +128,9 @@ public class ExpressionInfo extends Info<Expression> {
 		case 1 : return value;
 		case 2 : return value * (-1);
 		default: return value + value2;
-		}
-		
+		}	
 	}
+	
 	/**
 	 * The expected result of a boolean Expression
 	 * @return boolean result
@@ -129,6 +153,7 @@ public class ExpressionInfo extends Info<Expression> {
 		else 
 			return (str + str2);
 	}
+	
 	/** Converts to String in format 
 	 * "new Expression(Input,input2);" 
 	 * for troubleshooting */
@@ -148,5 +173,4 @@ public class ExpressionInfo extends Info<Expression> {
 		}
 		return null;
 	}
-
 }
