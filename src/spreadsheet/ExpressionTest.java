@@ -178,15 +178,12 @@ public class ExpressionTest {
 	      final String expected = info.strResult();
 	      final String actual = info.getValue().toString();
 
-	      if (actual == expected) {
+	      if (actual.equals(expected)) {
 	        continue;
 	      }
 
 	      System.err.println("Concat failed. " + info);
-	      
 	    }
 	  }
-
-
 
 }

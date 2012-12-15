@@ -111,8 +111,8 @@ public class ExpressionInfo extends Info<Expression> {
 						+ Boolean.toString(bool)+ ")";
 		case 6 : return name + " (" + Boolean.toString(bool)+ ","
 						+ Boolean.toString(bool)+ ")";
-		case 7 : return name + " (" + str + ")";
-		case 8 :  return name + " (" + str + "," + str2 + ")";
+		case 7 : return name + " (\"" + str + "\")";
+		case 8 : return name + " (\"" + str + "\",\"" + str2 + "\")";
 		}
 		return null;
 	}
