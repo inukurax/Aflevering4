@@ -10,13 +10,13 @@ public abstract class ExpressionGenerator
 	
 	protected final IntegerGenerator intGen;
 	protected final BooleanGenerator boolGen;
-	protected final StringGenerator stringGen;
+	protected final StringGenerator strGen;
 
 	
 	public ExpressionGenerator() {
 		this.intGen = new IntegerGenerator();
 	    this.boolGen = new BooleanGenerator();
-	    this.stringGen = new StringGenerator();
+	    this.strGen = new StringGenerator();
 	}
 	
 	public abstract ExpressionInfo next();

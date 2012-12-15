@@ -81,7 +81,10 @@ public class ExpressionInfo extends Info<Expression> {
 		}
 		
 	}
-
+	/**
+	 * The expected result of a boolean Expression
+	 * @return boolean
+	 */
 	public boolean boolResult() {
 		switch (i) {
 		case 4 : return bool;
@@ -105,9 +108,9 @@ public class ExpressionInfo extends Info<Expression> {
 		case 3 : return String.format(name + "(%d,%d)", value, value2);
 		case 4 : return name + " (" + Boolean.toString(bool) + ")";
 		case 5 : return name + " (" + Boolean.toString(bool)+ ","
-								+ Boolean.toString(bool)+ ")";
+						+ Boolean.toString(bool)+ ")";
 		case 6 : return name + " (" + Boolean.toString(bool)+ ","
-				+ Boolean.toString(bool)+ ")";
+						+ Boolean.toString(bool)+ ")";
 		case 7 : return name + " (" + str + ")";
 		case 8 :  return name + " (" + str + "," + str2 + ")";
 		}
