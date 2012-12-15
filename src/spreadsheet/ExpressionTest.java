@@ -5,6 +5,8 @@ import spreadsheet.arithmetic.*;
 import spreadsheet.logical.ConjunctGenerator;
 import spreadsheet.logical.DisjunctGenerator;
 import spreadsheet.logical.LConstGenerator;
+import spreadsheet.textual.ConcatGenerator;
+import spreadsheet.textual.TConstGenerator;
 
 public class ExpressionTest {
 	
@@ -17,12 +19,6 @@ public class ExpressionTest {
 	  private ExpressionGenerator disjunctGen;
 	  private ExpressionGenerator tConstGen;
 	  private ExpressionGenerator concatGen;
-
-
-
-
-
-
 	
 	  @org.junit.Before
 	  public void intializeExpressionGenerator() {
@@ -33,6 +29,9 @@ public class ExpressionTest {
 	    this.lConstGen = new LConstGenerator();
 	    this.conjunctGen = new ConjunctGenerator();
 	    this.disjunctGen = new DisjunctGenerator();
+	    
+	    this.tConstGen = new TConstGenerator();
+	    this.concatGen = new ConcatGenerator();
 	    
 	  }
 	
@@ -149,6 +148,45 @@ public class ExpressionTest {
 	      
 	    }
 	  }
+	  
+	  @org.junit.Test
+	  public void testTConst() {
+
+	    final Values<ExpressionInfo> infos =
+	      new Values<ExpressionInfo>(this.tConstGen);
+
+	    for (final ExpressionInfo info : infos) {
+	      final String expected = info.strResult();
+	      final String actual = info.getValue().toString();
+
+	      if (actual == expected) {
+	        continue;
+	      }
+
+	      System.err.println("TConst failed. " + info);
+	      
+	    }
+	  }
+	  
+	  @org.junit.Test
+	  public void testConcat() {
+
+	    final Values<ExpressionInfo> infos =
+	      new Values<ExpressionInfo>(this.concatGen);
+
+	    for (final ExpressionInfo info : infos) {
+	      final String expected = info.strResult();
+	      final String actual = info.getValue().toString();
+
+	      if (actual == expected) {
+	        continue;
+	      }
+
+	      System.err.println("Concat failed. " + info);
+	      
+	    }
+	  }
+
 
 
 }
