@@ -8,7 +8,7 @@ class SinglyLinkedList {
     private final Node node;
     private final LinkedNode tail;
 
-    /* Assume node is not null. */
+    /* Assume Node is not null. */
     public LinkedNode(final Node node, final LinkedNode tail) {
       this.node = node;
       this.tail = tail;
