@@ -23,6 +23,13 @@ public class ExpressionInfo extends Info<Expression> {
 		i = 2;
 	}
 	
+	/**
+	 * Gives info on an Add expression.
+	 * @param exp
+	 * @param firstOperand
+	 * @param secondOperand
+	 * @param unused
+	 */
 	public ExpressionInfo(Expression exp, int firstOperand, 
 					int secondOperand, int unused) {
 		
@@ -33,6 +40,10 @@ public class ExpressionInfo extends Info<Expression> {
 		i = 3;
 	}
 	
+	/**
+	 * 
+	 * @return the expected expression value
+	 */
 	public int result() {
 		switch (i) {
 		case 1 : return value;
@@ -46,7 +57,10 @@ public class ExpressionInfo extends Info<Expression> {
 	
 	@Override
 	public String toString() {
-		return String.format(str + "(%d,%d)", value, value2);
+		if (i == 3)
+			return String.format(str + "(%d,%d)", value, value2);
+		else
+			return String.format(str + "(%d)", value);
 	}
 
 }
