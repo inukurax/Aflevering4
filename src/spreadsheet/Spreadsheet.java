@@ -13,8 +13,8 @@ public final class Spreadsheet {
     this.map.insert(position, expression);
   }
 
-  /* assume position is not null.
-   * null if the position is not associated with an expression. */
+  /* Assume position is not null.
+   * Null if the position is not associated with an expression. */
   public Expression get(final Position position) {
     return this.map.lookup(position);
   }

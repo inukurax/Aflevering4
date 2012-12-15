@@ -3,8 +3,13 @@ package spreadsheet.logical;
 import spreadsheet.ExpressionGenerator;
 import spreadsheet.ExpressionInfo;
 
+/** A generator for the Conjunct class */
 public class ConjunctGenerator extends ExpressionGenerator {
 
+	/**
+	 * Generates a random Conjunct Expression
+	 * @return ExpressionInfo about the newly made Conjunct Expression
+	 */
 	@Override
 	public ExpressionInfo next() {
 		final boolean val1 = this.boolGen.next();

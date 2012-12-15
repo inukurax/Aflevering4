@@ -13,28 +13,50 @@ public class ExpressionInfo extends Info<Expression> {
 	private boolean bool;
 	private boolean bool2;
 
-	public ExpressionInfo(Expression expression, int value) {
-		super(expression);	
-		this.value = expression.toInt();
+	/**
+	 * Here we overload the ExpressionInfo constructor
+	 * to make java choose which one is needed
+	 * In this case its for AConst Expressions
+	 * @param value The value used for AConstGenerator
+	 */
+	public ExpressionInfo(Expression exp, int value) {
+		super(exp);	
+		this.value = value;
 		name = "new AConst";
 		i = 1;
 	}
-
+	
+	/**
+	 * For Neg Expressions
+	 * @param value Original value for NegGenerator
+	 * @param str Used to make the overload possible
+	 * 			  and stores a string with the name
+	 */
 	public ExpressionInfo(Expression exp, int value, String str) {
 		super(exp);
 		this.value = value;
 		this.name = str;
 		i = 2;
 	}
-
-	public ExpressionInfo(Expression exp, int firstOperand, int secondOperand, String str) {
+	
+	/**
+	 * For Add Expressions
+	 * @param firstOperand First original value for AddGenerator
+	 * @param secondOperand Second original value for AddGenerator 
+	 * @param str
+	 */
+	public ExpressionInfo(Expression exp, int firstOperand, int secondOperand) {
 		super(exp);
 		this.value = firstOperand;
 		this.value2 = secondOperand;
-		this.name = str;
+		this.name = "New Add";
 		i = 3;
 	}
-
+	
+	/**
+	 * For LConst Expressions
+	 * @param bool
+	 */
 	public ExpressionInfo(Expression exp, boolean bool) {
 		super(exp);
 		this.bool = bool;
@@ -73,6 +95,10 @@ public class ExpressionInfo extends Info<Expression> {
 		i = 8;
 	}
 
+	/**
+	 * The expected result of a integer Expression
+	 * @return integer result
+	 */
 	public int intResult() {
 		switch (i) {
 		case 1 : return value;
@@ -83,7 +109,7 @@ public class ExpressionInfo extends Info<Expression> {
 	}
 	/**
 	 * The expected result of a boolean Expression
-	 * @return boolean
+	 * @return boolean result
 	 */
 	public boolean boolResult() {
 		switch (i) {
@@ -93,15 +119,19 @@ public class ExpressionInfo extends Info<Expression> {
 		}
 	}
 
+	/**
+	 * The expected result of a String Expression
+	 * @return String result
+	 */
 	public String strResult() {
 		if (i == 7) 
 			return str;
 		else 
 			return (str + str2);
 	}
-	/**
-	 * Converts to String in format new Expression(Input,input2);
-	 */
+	/** Converts to String in format 
+	 * "new Expression(Input,input2);" 
+	 * for troubleshooting */
 	@Override
 	public String toString() {
 		switch (i) {
@@ -110,9 +140,9 @@ public class ExpressionInfo extends Info<Expression> {
 		case 3 : return String.format(name + "(%d,%d)", value, value2);
 		case 4 : return name + " (" + Boolean.toString(bool) + ")";
 		case 5 : return name + " (" + Boolean.toString(bool)+ ","
-						+ Boolean.toString(bool)+ ")";
+									+ Boolean.toString(bool2)+ ")";
 		case 6 : return name + " (" + Boolean.toString(bool)+ ","
-						+ Boolean.toString(bool)+ ")";
+									+ Boolean.toString(bool2)+ ")";
 		case 7 : return name + " (\"" + str + "\")";
 		case 8 : return name + " (\"" + str + "\",\"" + str2 + "\")";
 		}

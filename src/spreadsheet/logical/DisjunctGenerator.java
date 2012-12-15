@@ -3,8 +3,13 @@ package spreadsheet.logical;
 import spreadsheet.ExpressionGenerator;
 import spreadsheet.ExpressionInfo;
 
+/** A generator for the Disjunct class */
 public class DisjunctGenerator extends ExpressionGenerator {
 
+	/**
+	 * Generates a random Disjunct Expression
+	 * @return ExpressionInfo about the newly made Disjunct Expression
+	 */
 	@Override
 	public ExpressionInfo next() {
 		final boolean val1 = this.boolGen.next();
