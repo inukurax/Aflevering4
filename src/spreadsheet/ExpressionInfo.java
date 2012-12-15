@@ -12,14 +12,14 @@ public class ExpressionInfo extends Info<Expression> {
 	public ExpressionInfo(Expression expression, int value) {
 		super(expression);	
 		this.value = value;;
-		str = "new AConst";
+		this.str = "new AConst";
 		i = 1;
 	}
 	
-	public ExpressionInfo(Expression exp, int value , int unused) {
+	public ExpressionInfo(Expression exp, int value , String str) {
 		super(exp);
 		this.value = value;
-		str = "new Neg";
+		this.str = str;
 		i = 2;
 	}
 	
@@ -31,12 +31,12 @@ public class ExpressionInfo extends Info<Expression> {
 	 * @param unused
 	 */
 	public ExpressionInfo(Expression exp, int firstOperand, 
-					int secondOperand, int unused) {
+					int secondOperand, String str) {
 		
 		super(exp);
 		this.value = firstOperand;
 		this.value2 = secondOperand;
-		str = "new Add";
+		this.str = str;
 		i = 3;
 	}
 	

@@ -10,6 +10,6 @@ public class NegGenerator extends ExpressionGenerator {
 		final int value = this.intGen1.next();
 		final AConst aConst = new AConst(value);
 		final Neg neg = new Neg(aConst);
-		return new ExpressionInfo(neg, value, 0);
+		return new ExpressionInfo(neg, value, "new Neg");
 	}
 }

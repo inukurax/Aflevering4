@@ -12,7 +12,7 @@ public class AddGenerator extends ExpressionGenerator {
 		final AConst aConst1 = new AConst(val1);
 		final AConst aConst2 = new AConst(val2);
 		final Add add = new Add(aConst1, aConst2);
-		return new ExpressionInfo(add, val1, val2 , 0);
+		return new ExpressionInfo(add, val1, val2 , "new Add");
 	}
 
 }

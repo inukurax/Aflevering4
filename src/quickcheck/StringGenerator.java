@@ -2,7 +2,7 @@ package quickcheck;
 
 public class StringGenerator extends Generator<String>{
 	
-	private static final int DEFAULT_MAX_STR_SIZE = 5;
+	private static final int DEFAULT_MAX_STR_SIZE = 10;
 	
 	private int size;
 	
@@ -10,8 +10,8 @@ public class StringGenerator extends Generator<String>{
 		this(DEFAULT_MAX_STR_SIZE );
 	}
 
-	public StringGenerator(int strSize) {
-		this.size = strSize;
+	public StringGenerator(int maxStrSize) {
+		this.size = maxStrSize;
 	}
 	
 	/**
@@ -28,6 +28,11 @@ public class StringGenerator extends Generator<String>{
 		return random.nextInt(max) + min;
 	}
 	
+	/**
+	 * Returns a random non capital String of characters from a -> z
+	 * @param length of the random string, 0 -> ""
+	 * @return a String of the characters from a -> z
+	 */
 	private String randomString(int length) {
 		String result = "";
 		for (int i = 1; i <= length;i++) {
@@ -35,12 +40,11 @@ public class StringGenerator extends Generator<String>{
 			result = result + str;
 		}
 		return result;
-		
 	}
 
 	@Override
 	public String next() {
-		return randomString(this.size);
+		return randomString(randomInt(0,this.size));
 	}
 
 }
