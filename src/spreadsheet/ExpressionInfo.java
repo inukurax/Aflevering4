@@ -15,7 +15,7 @@ public class ExpressionInfo extends Info<Expression> {
 
 	public ExpressionInfo(Expression expression, int value) {
 		super(expression);	
-		this.value = expression.toInt();
+		this.value = value;
 		name = "new AConst";
 		i = 1;
 	}
