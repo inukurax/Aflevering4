@@ -87,6 +87,7 @@ public class ExpressionInfo extends Info<Expression> {
 	 */
 	public boolean boolResult() {
 		switch (i) {
+		case 1 : return value != 0;
 		case 4 : return bool;
 		case 5 : return (bool && bool2);
 	    default : return (bool || bool2);
@@ -94,6 +95,8 @@ public class ExpressionInfo extends Info<Expression> {
 	}
 
 	public String strResult() {
+		if (i == 1)
+			return Integer.toString(value);
 		if (i == 7) 
 			return str;
 		else 

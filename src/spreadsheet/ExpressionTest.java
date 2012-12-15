@@ -49,10 +49,34 @@ public class ExpressionTest {
 	        continue;
 	      }
 
-	      System.err.println("AConst failed. " + info);
+	      System.err.println("AConst.toInt() failed. " + info);
 	      
 	    }
+	    for (final ExpressionInfo info : infos) {
+		      final String expected = info.strResult();
+		      final String actual = info.getValue().toString();
+
+		      if (actual == expected) {
+		        continue;
+		      }
+
+		      System.err.println("AConst.toString() failed. " + info);
+		      
+		    }
+	    
+	    for (final ExpressionInfo info : infos) {
+		      final boolean expected = info.boolResult();
+		      final boolean actual = info.getValue().toBoolean();
+
+		      if (actual == expected) {
+		        continue;
+		      }
+
+		      System.err.println("AConst.toBoolean() failed. " + info);
+		      
+		    }
 	  }
+	  
 	  
 	  @org.junit.Test
 	  public void testAdd() {
